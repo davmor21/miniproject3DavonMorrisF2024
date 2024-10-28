@@ -1,21 +1,51 @@
-import scrython
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, url_for
 )
 from werkzeug.exceptions import abort
 
 from flaskr.auth import login_required
-from flaskr.db import get_db  # Import get_db
+from flaskr.db import get_db
 
 bp = Blueprint('mtg', __name__)
 
 @bp.route('/')
 def index():
-    db = get_db()  # Get the database connection
-    cards = db.execute(
-        'SELECT * FROM card'  # Your SQL query to fetch cards
+    return render_template('mtg/index.html')
+
+@bp.route('/collections')
+@login_required
+def collections():
+    db = get_db()
+    collections = db.execute(
+        'SELECT *'
+        ' FROM collection'
+        ' WHERE user_id = ?', (g.user['id'],)
     ).fetchall()
-    return render_template('mtg/collection.html', cards=cards)
+    return render_template('mtg/collections.html', collections=collections)
+
+@bp.route('/create_collection', methods=('GET', 'POST'))
+@login_required
+def create_collection():
+    if request.method == 'POST':
+        name = request.form['name']
+        error = None
+
+        if not name:
+            error = 'Collection name is required.'
+
+        if error is not None:
+            flash(error)
+        else:
+            db = get_db()
+            db.execute(
+                'INSERT INTO collection (name, user_id)'
+                ' VALUES (?, ?)',
+                (name, g.user['id'])
+            )
+            db.commit()
+            return redirect(url_for('mtg.collections'))
+
+    return render_template('mtg/create_collection.html')
 
 @bp.route('/add', methods=('GET', 'POST'))
 @login_required
@@ -29,9 +59,8 @@ def add():
         else:
             try:
                 card = scrython.cards.Named(fuzzy=card_name)
-                db = get_db()  # Get the database connection
+                db = get_db()
 
-                # Check if the card already exists (using SQL query)
                 existing_card = db.execute(
                     'SELECT id FROM card WHERE name = ?', (card.name(),)
                 ).fetchone()

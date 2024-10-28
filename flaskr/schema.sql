@@ -25,3 +25,9 @@ CREATE TABLE card (
   rarity TEXT,
   image_url TEXT
 );
+CREATE TABLE collection (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  user_id INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user (id)
+);
