@@ -1,13 +1,13 @@
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from flaskr.db import db
 
 class Card(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    card_type = db.Column(db.String(50), nullable=False)
-    set_name = db.Column(db.String(50), nullable=False)
-    description = db.Column(db.Text, nullable=True)
+    set = db.Column(db.String(20), nullable=False)
+    mana_cost = db.Column(db.String(50))
+    type = db.Column(db.String(50))
+    rarity = db.Column(db.String(20))
+    image_url = db.Column(db.String(200))
 
     def __repr__(self):
         return f'<Card {self.name}>'

@@ -15,3 +15,13 @@ CREATE TABLE post (
   body TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
 );
+
+CREATE TABLE card (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  `set` TEXT NOT NULL,
+  mana_cost TEXT,
+  type TEXT,
+  rarity TEXT,
+  image_url TEXT
+);

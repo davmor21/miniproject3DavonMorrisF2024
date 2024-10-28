@@ -3,6 +3,9 @@ import sqlite3
 import click
 from flask import current_app, g
 
+from flask_sqlalchemy import SQLAlchemy  # Import SQLAlchemy
+
+db = SQLAlchemy()  # Create a SQLAlchemy object
 
 def get_db():
     if 'db' not in g:
