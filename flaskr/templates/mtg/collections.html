@@ -5,13 +5,20 @@
 {% endblock %}
 
 {% block content %}
-<ul>
-    {% for collection in collections %}
-    <li>
-        <a href="{{ url_for('mtg.collection', collection_id=collection['id']) }}">{{ collection['name'] }}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-<a href="{{ url_for('mtg.create_collection') }}" class="btn btn-lg btn-success">Create New Collection</a>
+<div class="container">
+    <div class="row">
+        {% for collection in collections %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ collection['name'] }}</h5>
+                    <a href="{{ url_for('mtg.collection', collection_id=collection['id']) }}" class="btn btn-primary">View
+                        Collection</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('mtg.create_collection') }}" class="btn btn-lg btn-success">Create New Collection</a>
+</div>
 {% endblock %}
