@@ -38,35 +38,35 @@ flask --app flaskr run --debug
 ### Go to website [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
 ### For your first time, click register at the top right:
-![img.png](images/img.png)
 
-### Choose a username and password, and then choose "Log In" at the top right. 
-![img_1.png](images/img_1.png)
 
-### Log in with the credentials you set up in the previous step. 
+1. ### Choose a username and password, and then choose "Log In" at the top right. 
 
-### You will arrive at the home page for your collections.
 
-### Click the green "Create New Collection" to create your first collection
-![img_2.png](images/img_2.png)
+2. ### Log in with the credentials you set up in the previous step. 
 
-### Choose a collection name, and then click "Create Collection"
-![img_3.png](images/img_3.png)
+3. ### You will arrive at the home page for your collections.
 
-### You will be taken back to the home page, go ahead and click "View Collection" on the Collection that you created.
-![img_4.png](images/img_4.png)
+4. ### Click the green "Create New Collection" to create your first collection
 
-### Add your first card by clicking "Add Card"
-![img_5.png](images/img_5.png)
 
-### Search for the card of your choice, and click "Add Card", try to be specific as possible with the name
-![img_6.png](images/img_6.png)
+5. ### Choose a collection name, and then click "Create Collection"
 
-### If a valid card name was chosen, you will be taken to the home screen and told that it was added to your collection
-![img_7.png](images/img_7.png)
 
-### You have successfully added your first card to your collection!
-![img_8.png](images/img_8.png)
+6. ### You will be taken back to the home page, go ahead and click "View Collection" on the Collection that you created.
+
+
+7. ### Add your first card by clicking "Add Card"
+
+
+8. ### Search for the card of your choice, and click "Add Card", try to be specific as possible with the name
+
+
+9. ### If a valid card name was chosen, you will be taken to the home screen and told that it was added to your collection
+
+
+10. ### You have successfully added your first card to your collection!
+
 
 
 ## Authors
