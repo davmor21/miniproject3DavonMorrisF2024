@@ -12,8 +12,18 @@ from flaskr.db import get_db
 bp = Blueprint('mtg', __name__)
 
 @bp.route('/')
+@login_required  # Requires login to view the homepage
 def index():
-    return render_template('mtg/index.html')
+    db = get_db()
+    collections = db.execute(
+        'SELECT *'
+        ' FROM collection'
+        ' WHERE user_id = ?'
+        ' ORDER BY id DESC'  # Order by id to show the latest collections first
+        ' LIMIT 5',  # Fetch up to five collections
+        (g.user['id'],)
+    ).fetchall()
+    return render_template('mtg/index.html', collections=collections)
 
 @bp.route('/collections')
 @login_required

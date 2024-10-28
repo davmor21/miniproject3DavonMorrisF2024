@@ -9,10 +9,9 @@
     {% for collection in collections %}
     <li>
         <a href="{{ url_for('mtg.collection', collection_id=collection['id']) }}">{{ collection['name'] }}</a>
-        <a href="{{ url_for('mtg.add_card', collection_id=collection['id']) }}">Add Card</a>
     </li>
     {% endfor %}
 </ul>
 
-<a href="{{ url_for('mtg.create_collection') }}">Create New Collection</a>
+<a href="{{ url_for('mtg.create_collection') }}" class="btn btn-lg btn-success">Create New Collection</a>
 {% endblock %}

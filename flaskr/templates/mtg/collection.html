@@ -5,12 +5,22 @@
 {% endblock %}
 
 {% block content %}
-<ul>
-    {% for card in cards %}
-    <li>
-        {{ card['name'] }}
-        <img src="{{ card['image_url'] }}" alt="{{ card['name'] }}">
-    </li>
-    {% endfor %}
-</ul>
+<a href="{{ url_for('mtg.add_card', collection_id=collection['id']) }}" class="btn btn-primary mb-3">Add Card</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Card Name</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for card in cards %}
+        <tr>
+            <td>{{ card['name'] }}</td>
+            <td><img src="{{ card['image_url'] }}" alt="{{ card['name'] }}" class="card-img"></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
