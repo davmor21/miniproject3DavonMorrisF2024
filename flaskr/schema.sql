@@ -23,7 +23,9 @@ CREATE TABLE card (
   mana_cost TEXT,
   type TEXT,
   rarity TEXT,
-  image_url TEXT
+  image_url TEXT,
+  collection_id INTEGER,
+  FOREIGN KEY (collection_id) REFERENCES collection (id)
 );
 CREATE TABLE collection (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

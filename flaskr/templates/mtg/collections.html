@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Your Collections{% endblock %}</h1>
+<h1>{% block title %}Your Collections{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-  <ul>
+<ul>
     {% for collection in collections %}
-      <li>
-        {{ collection['name'] }}
+    <li>
+        <a href="{{ url_for('mtg.collection', collection_id=collection['id']) }}">{{ collection['name'] }}</a>
         <a href="{{ url_for('mtg.add_card', collection_id=collection['id']) }}">Add Card</a>
-      </li>
+    </li>
     {% endfor %}
-  </ul>
+</ul>
 
-  <a href="{{ url_for('mtg.create_collection') }}">Create New Collection</a>
+<a href="{{ url_for('mtg.create_collection') }}">Create New Collection</a>
 {% endblock %}

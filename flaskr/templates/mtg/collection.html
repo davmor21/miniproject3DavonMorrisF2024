@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}My MTG Collection{% endblock %}</h1>
+<h1>{% block title %}{{ collection['name'] }}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-  <ul>
+<ul>
     {% for card in cards %}
-      <li>
-        {{ card.name }} ({{ card.set }})
-        <img src="{{ card.image_url }}" alt="{{ card.name }}">
-      </li>
+    <li>
+        {{ card['name'] }}
+        <img src="{{ card['image_url'] }}" alt="{{ card['name'] }}">
+    </li>
     {% endfor %}
-  </ul>
+</ul>
 {% endblock %}
