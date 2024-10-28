@@ -21,10 +21,16 @@ pip install -r requirements.txt
 
 * Clone my repository to your IDE configured to run Python 3.12
 
-### Executing program
+### Setup Database
 
 ```
+flask --app flaskr init-db  
+```
 
+### Start Website
+
+```
+flask --app flaskr run --debug
 ```
 
 ## Authors
